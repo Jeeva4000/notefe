@@ -1,0 +1,382 @@
+// import React, { useState, useEffect } from 'react'
+// import axios from 'axios';
+// import './App.css';
+// import Login from './components/Login';
+// import Notes from './components/Notes';
+
+// function App() {
+
+//   const [isLogin, setIsLogin] = useState(false)
+
+//   useEffect(() => {
+//     const checkLogin = async () => {
+//       const token = localStorage.getItem('tokenStore')
+//       if (token) {
+//         const verified = await axios.get('https://nt-psow.onrender.com/users/verify', {
+//           headers: { Authorization: token }
+//         })
+//         console.log(verified)
+//         setIsLogin(verified.data)
+//         if (verified.data === false) return localStorage.clear()
+//       } else {
+//         setIsLogin(false)
+//       }
+//     }
+//     checkLogin()
+//   }, [])
+
+//   return (
+//     <div className="App">
+//       {
+//         isLogin
+//           ? <Notes setIsLogin={setIsLogin} />
+//           : <Login setIsLogin={setIsLogin} />
+//       }
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// import React, { useState, useEffect } from 'react';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import axios from 'axios';
+// import './App.css';
+// import Login from './components/Login';
+// import Notes from './components/Notes';
+
+// function App() {
+//   const [isLogin, setIsLogin] = useState(false);
+
+//   useEffect(() => {
+//     const checkLogin = async () => {
+//       const token = localStorage.getItem('tokenStore');
+//       if (token) {
+//         try {
+//           const verified = await axios.get(
+//             'https://nt-psow.onrender.com/users/verify',
+//             {
+//               headers: { Authorization: token },
+//             }
+//           );
+//           console.log(verified);
+//           setIsLogin(verified.data);
+//           if (verified.data === false) return localStorage.clear();
+//         } catch (error) {
+//           console.error('Error verifying token:', error);
+//         }
+//       } else {
+//         setIsLogin(false);
+//       }
+//     };
+//     checkLogin();
+//   }, []);
+
+//   return (
+//     <Router>
+//       <div className="App">
+//         <Switch>
+//           <Route path="/notes">
+//             {isLogin ? <Notes setIsLogin={setIsLogin} /> : <Login setIsLogin={setIsLogin} />}
+//           </Route>
+//           <Route path="/">
+//             {isLogin ? <Notes setIsLogin={setIsLogin} /> : <Login setIsLogin={setIsLogin} />}
+//           </Route>
+//         </Switch>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route as ReactDOMRoute } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+
+// ...
+
+function App() {
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    // ... (unchanged)
+  }, []);
+
+  return (
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/notes" element={isLogin ? <Notes setIsLogin={setIsLogin} /> : <Login setIsLogin={setIsLogin} />} />
+          <Route path="/" element={isLogin ? <Notes setIsLogin={setIsLogin} /> : <Login setIsLogin={setIsLogin} />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react'
+// import axios from 'axios';
+// import './App.css';
+// import Login from './components/Login';
+// import Notes from './components/Notes';
+
+// function App() {
+
+//   const [isLogin, setIsLogin] = useState(false)
+
+//   useEffect(() => {
+//     const checkLogin = async () => {
+//       const token = localStorage.getItem('tokenStore')
+//       if (token) {
+//         const verified = await axios.get('https://nt-psow.onrender.com/users/verify', {
+//           headers: { Authorization: token }
+//         })
+//         console.log(verified)
+//         setIsLogin(verified.data)
+//         if (verified.data === false) return localStorage.clear()
+//       } else {
+//         setIsLogin(false)
+//       }
+//     }
+//     checkLogin()
+//   }, [])
+
+//   return (
+//     <div className="App">
+//       {
+//         isLogin
+//           ? <Notes setIsLogin={setIsLogin} />
+//           : <Login setIsLogin={setIsLogin} />
+//       }
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// import React, { useState, useEffect } from 'react';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import axios from 'axios';
+// import './App.css';
+// import Login from './components/Login';
+// import Notes from './components/Notes';
+
+// function App() {
+//   const [isLogin, setIsLogin] = useState(false);
+
+//   useEffect(() => {
+//     const checkLogin = async () => {
+//       const token = localStorage.getItem('tokenStore');
+//       if (token) {
+//         try {
+//           const verified = await axios.get(
+//             'https://nt-psow.onrender.com/users/verify',
+//             {
+//               headers: { Authorization: token },
+//             }
+//           );
+//           console.log(verified);
+//           setIsLogin(verified.data);
+//           if (verified.data === false) return localStorage.clear();
+//         } catch (error) {
+//           console.error('Error verifying token:', error);
+//         }
+//       } else {
+//         setIsLogin(false);
+//       }
+//     };
+//     checkLogin();
+//   }, []);
+
+//   return (
+//     <Router>
+//       <div className="App">
+//         <Switch>
+//           <Route path="/notes">
+//             {isLogin ? <Notes setIsLogin={setIsLogin} /> : <Login setIsLogin={setIsLogin} />}
+//           </Route>
+//           <Route path="/">
+//             {isLogin ? <Notes setIsLogin={setIsLogin} /> : <Login setIsLogin={setIsLogin} />}
+//           </Route>
+//         </Switch>
+//       </div>
+//     </Router>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Import necessary dependencies
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+// Define your Login component
+const Login = ({ setIsLogin }) => {
+    const navigate = useNavigate();
+    const [user, setUser] = useState({ name: '', email: '', password: '' });
+    const [err, setErr] = useState('');
+
+    const onChangeInput = (e) => {
+        const { name, value } = e.target;
+        setUser({ ...user, [name]: value });
+        setErr('');
+    };
+
+    const registerSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('https://nt-psow.onrender.com/users/register', {
+                username: user.name,
+                email: user.email,
+                password: user.password,
+            });
+            setUser({ name: '', email: '', password: '' });
+            setErr(res.data.msg);
+            navigate('/login');
+        } catch (err) {
+            err.response.data.msg && setErr(err.response.data.msg);
+        }
+    };
+
+    const loginSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('https://nt-psow.onrender.com/users/login', {
+                email: user.email,
+                password: user.password,
+            });
+            setUser({ name: '', email: '', password: '' });
+            localStorage.setItem('tokenStore', res.data.token);
+            setIsLogin(true);
+            navigate('/');
+        } catch (err) {
+            err.response.data.msg && setErr(err.response.data.msg);
+        }
+    };
+
+    const [onLogin, setOnLogin] = useState(false);
+    const style = {
+        visibility: onLogin ? 'visible' : 'hidden',
+        opacity: onLogin ? 1 : 0,
+    };
+
+    return (
+        <section className="login-page">
+            <div className="login create-note">
+                <h2>Login</h2>
+                <form onSubmit={loginSubmit}>
+                    <input type="email" name="email" id="login-email"
+                        placeholder="Email" required value={user.email}
+                        onChange={onChangeInput} />
+
+                    <input type="password" name="password" id="login-password"
+                        placeholder="Password" required value={user.password}
+                        autoComplete="true"
+                        onChange={onChangeInput} />
+
+                    <button type="submit">Login</button>
+                    <p>You don't have an account?
+                        <span onClick={() => setOnLogin(true)}> Register Now</span>
+                    </p>
+                    <h3>{err}</h3>
+                </form>
+            </div>
+
+            <div className="register create-note" style={style}>
+                <h2>Register</h2>
+                <form onSubmit={registerSubmit}>                    <input type="text" name="name" id="register-name"
+                    placeholder="User Name" required value={user.name}
+                    onChange={onChangeInput} />
+
+                    <input type="email" name="email" id="register-email"
+                        placeholder="Email" required value={user.email}
+                        onChange={onChangeInput} />
+
+                    <input type="password" name="password" id="register-password"
+                        placeholder="Password" required value={user.password}
+                        autoComplete="true" onChange={onChangeInput} />
+
+                    <button type="submit">Register</button>
+                    <p>You have an account?
+                        <span onClick={() => setOnLogin(false)}> Login Now</span>
+                    </p>
+                    <h3>{err}</h3>
+                </form>
+            </div>
+        </section>
+
+    );
+};
+
+export default Login; // Don't forget to export your component
+
+
+// export default App;

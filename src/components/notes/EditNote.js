@@ -45,7 +45,18 @@ export default function EditNote({ match }) {
             const token = localStorage.getItem('tokenStore');
             if (token) {
                 const { title, content, date, id } = note;
-                const newNote = { title, content, date };
+
+                // Check if any of the required fields are empty
+                if (!title || !content || !date) {
+                    console.error('Please fill in all the fields');
+                    return;
+                }
+
+                const newNote = {
+                    title,
+                    content,
+                    date: new Date(date).toISOString(),
+                };
 
                 await axios.put(`https://nt-psow.onrender.com/api/notes/${id}`, newNote, {
                     headers: { Authorization: token }
@@ -55,7 +66,6 @@ export default function EditNote({ match }) {
             }
         } catch (err) {
             console.error('Error editing note:', err);
-
         }
     };
     return (
