@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Login from './components/Login';
 import Notes from './components/Notes';
-import { Router } from 'react-router-dom';
+// import { Router } from 'react-router-dom';
 
 function App() {
 

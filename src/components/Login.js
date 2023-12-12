@@ -155,7 +155,13 @@ export default function Login({ setIsLogin }) {
         visibility: onLogin ? 'visible' : 'hidden',
         opacity: onLogin ? 1 : 0,
     };
-
+    const setDemoCredentials = () => {
+        setUser({
+            name: 'Jeeva',
+            email: 'jeeva@gmail.com',
+            password: '12345',
+        });
+    };
     return (
         <section className="login-page">
             <div className="login create-note">
@@ -188,6 +194,9 @@ export default function Login({ setIsLogin }) {
                         <span onClick={() => setOnLogin(true)}> Register Now</span>
                     </p>
                     <h3>{err}</h3>
+                    <button type="button" onClick={setDemoCredentials}>
+                        Use Demo Credentials
+                    </button>
                 </form>
             </div>
             <div className="register create-note" style={style}>
@@ -230,8 +239,10 @@ export default function Login({ setIsLogin }) {
                         <span onClick={() => setOnLogin(false)}> Login Now</span>
                     </p>
                     <h3>{err}</h3>
+
                 </form>
             </div>
+
         </section>
     );
 }
