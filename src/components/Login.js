@@ -128,6 +128,7 @@ export default function Login({ setIsLogin }) {
             setUser({ name: '', email: '', password: '' });
             setErr(res.data.msg);
             // navigate('/login');
+            window.location.href = "/login";
         } catch (err) {
             err.response.data.msg && setErr(err.response.data.msg);
         }
